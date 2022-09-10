@@ -29,26 +29,34 @@
               <p class="dashboard__info_amount dashboard__info_amount__balance"></p>
             </div>
           </div>
-          <div class="dashboard__actives">
-            <div class="dashboard__actives_table">
-              <nav class="dashboard__actives_nav">
-                <a
-                  class="dashboard__actives_tab dashboard__actives_tab__active"
-                  href="#"
-                  >History</a
-                >
-                <a class="dashboard__actives_tab" href="#">Upcoming</a>
-              </nav>
-              <ul class="dashboard__actives_list">
-               
-              </ul>
+          <div class="row">
+            <div class="dashboard__actives">
+              <div class="dashboard__actives_table">
+                <nav class="dashboard__actives_nav">
+                  <a
+                    class="dashboard__actives_tab dashboard__actives_tab__active"
+                    href="#"
+                    >History</a
+                  >
+                  <a class="dashboard__actives_tab" href="#">Upcoming</a>
+                </nav>
+                <ul class="dashboard__actives_list">
+                 
+                </ul>
+              </div>
             </div>
+            <div class="dashboard__analytic">
+              <canvas id="myChart" class="dashboard__analytic-chart"></canvas>
           </div>
+          </div>
+          
         </div>
       </div>
       <div class="dashboard__aside"></div>
     </div>
-
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+ 
     <script type="text/javascript" src="script/script.js"></script>
   </body>
 </html>
