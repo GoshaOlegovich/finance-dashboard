@@ -2,3 +2,10 @@
     font-family: 'DM Sans', sans-serif;
     font-size: 62.5%; // 10px
 }
+
+.title {
+    &__h3 {
+        font-size: 2rem;
+        color: $fontDisable--light;
+    }
+}

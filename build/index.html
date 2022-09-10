@@ -11,84 +11,144 @@
 
   <body>
     <aside class="sidebar">
-      <div class="sidebar__content">
+    <div class="sidebar__content">
 
-          <div class="sidebar__logo">
-               logo
-            </svg>
-          </div>
+        <div class="sidebar__logo">
+             logo
+          </svg>
+        </div>
 
-        <nav class="sidebar__nav">
-          <a class="sidebar__link sidebar__link__active" href="#">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              fill="none"
-              viewBox="0 0 24 24"
-            >
-              <g clip-path="url(#a)" opacity="1">
-                <path 
-                  fill="#2E2E2E"
-                  d="M12 6a3 3 0 0 0-3 3v12a3 3 0 0 0 6 0V9a3 3 0 0 0-3-3Zm9-6a3 3 0 0 0-3 3v18a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3ZM3 12a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0v-6a3 3 0 0 0-3-3Z"
-                />
-              </g>
-              <defs>
-                <clipPath id="a">
-                  <path fill="#fff" d="M0 0h24v24H0z" />
-                </clipPath>
-              </defs>
-            </svg>
-          </a>
-        </nav>
-      </div>
-    </aside>
+      <nav class="sidebar__nav">
+        <a class="sidebar__link sidebar__link__active" href="#">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <g clip-path="url(#a)" opacity="1">
+              <path 
+                fill="#2E2E2E"
+                d="M12 6a3 3 0 0 0-3 3v12a3 3 0 0 0 6 0V9a3 3 0 0 0-3-3Zm9-6a3 3 0 0 0-3 3v18a3 3 0 0 0 6 0V3a3 3 0 0 0-3-3ZM3 12a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0v-6a3 3 0 0 0-3-3Z"
+              />
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h24v24H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </a>
+      </nav>
+    </div>
+  </aside>
+
     <div class="dashboard">
       <div class="container">
-        <div class="dashboard__content">
-          <div class="dashboard__analytic">
-            <div class="dashboard__info dashboard__info__earning">
-              <p class="dashboard__info_name">Total Earning</p>
+        <!-- Content start  -->
+
+        <div class="analytic__content">
+          <!-- Flow display -->
+
+          <div class="analytic__headbar">
+            <div class="analytic__info analytic__info__earning">
+              <p class="analytic__info_name">Total Earning</p>
               <p
-                class="dashboard__info_amount dashboard__info_amount__earning"
+                class="analytic__info_amount analytic__info_amount__earning"
               ></p>
             </div>
 
-            <div class="dashboard__info dashboard__info__spending">
-              <p class="dashboard__info_name">Total Spending</p>
+            <div class="analytic__info analytic__info__spending">
+              <p class="analytic__info_name">Total Spending</p>
               <p
-                class="dashboard__info_amount dashboard__info_amount__spending"
+                class="analytic__info_amount analytic__info_amount__spending"
               ></p>
             </div>
 
-            <div class="dashboard__info dashboard__info__balance">
-              <p class="dashboard__info_name">Balance</p>
+            <div class="analytic__info analytic__info__balance">
+              <p class="analytic__info_name">Balance</p>
               <p
-                class="dashboard__info_amount dashboard__info_amount__balance"
+                class="analytic__info_amount analytic__info_amount__balance"
               ></p>
             </div>
           </div>
-          <div class="row">
-            <div class="dashboard__actives">
-              <div class="dashboard__actives_table">
-                <nav class="dashboard__actives_nav">
-                  <a
-                    class="dashboard__actives_tab dashboard__actives_tab__active"
-                    href="#"
-                    >History</a
-                  >
-                  <a class="dashboard__actives_tab" href="#">Upcoming</a>
-                </nav>
-                <ul class="dashboard__actives_list"></ul>
+
+          <!-- Navigation -->
+          <nav class="navigation">
+            <a class="navigation__link navigation__link--active" href="#"
+              >Analysis</a
+            >
+            <a class="navigation__link" href="#">Transanctions</a>
+          </nav>
+
+          <!-- Informarion -->
+          <div class="analytic__information">
+            <div class="transactions">
+              <div class="transactions__filter">
+                <h3 class="title__h3">Transactions</h3>
+                <form class="transactions__form">
+                  <label for="selectorMonth">
+                    <span class="transactions__label">Mount</span>
+                    <select
+                      id="selectorMonth"
+                      name="month"
+                      class="transactions__selector"
+                    >
+                      <option value="All">All</option>
+                      <option value="Jule">Jule</option>
+                      <option value="Aug">Aug</option>
+                      <option value="Sep">Sep</option>
+                    </select>
+                  </label>
+                  <label for="selectorCategory">
+                    <span class="transactions__label">Category</span>
+                    <select
+                      name="category"
+                      id="selectorCategory"
+                      class="transactions__selector"
+                    >
+                      <option value="All">All</option>
+                      <option value="Freelance">Freelance</option>
+                      <option value="Food">Food</option>
+                    </select>
+                  </label>
+                  <label for="selectorType">
+                    <span class="transactions__label">Type</span>
+                    <select
+                      name="type"
+                      id="selectorType"
+                      class="transactions__selector"
+                    >
+                      <option value="All">All</option>
+                      <option value="income">income</option>
+                      <option value="outcome">outcome</option>
+                    </select>
+                  </label>
+                </form>
               </div>
+
+              <ul class="transactions__list">
+                <li class="transactions_item">
+                  <span class="transactions__value">
+                    Category
+                  </span>
+                  <span class="transactions__value">
+                    Date
+                  </span>
+                  <span class="transactions__value">
+                    Amount
+                  </span>
+                </li>
+              </ul>
             </div>
-            <div class="dashboard__analytic">
-              <canvas id="myChart" class="dashboard__analytic-chart"></canvas>
-            </div>
+
+            <!-- <div class="analytic__chart">
+              <canvas id="myChart" class="analytic__analytic-chart"></canvas>
+            </div> -->
           </div>
         </div>
       </div>
-      <div class="dashboard__aside"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
