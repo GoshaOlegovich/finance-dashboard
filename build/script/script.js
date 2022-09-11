@@ -10,7 +10,7 @@ const transactions = [
     value: 500,
     category: "Freelance",
     date: {
-      month: "Jule",
+      month: "Sep",
       day: 01,
     },
   },
@@ -94,13 +94,97 @@ form.addEventListener("change", (e) => {
                 </li>`;
 
   includeTransactions(
-    filter(filterParam.month, filterParam.category, filterParam.type)
+    filterCheck(filterParam.month, filterParam.category, filterParam.type)
   );
-
+ 
 });
 
-const filter = (param1, param2, param3) => {
+const filterCheck = (p1, p2, p3) => {
+  const filterResult = filter(p1, p2, p3)
+  console.log(filterResult);
+  if (filterResult.length === 0) {
+    list.innerHTML = `
+  <li class="transactions_item">
+                  <span class="transactions__value">
+                    Category
+                  </span>
+                  <span class="transactions__value">
+                    Date
+                  </span>
+                  <span class="transactions__value">
+                    Amount
+                  </span>
+                </li>
+                <li class="transactions_item">
+                  <span class="transactions__value">
+                 No data
+                  </span>
+                </li>
+                
+                `;
+  }
+  else {
+    return filterResult
+  }
 
+}
+
+
+const filter = (param1, param2, param3) => {
+  // month
+  if (param1 !== "All" && param2 === "All" && param3 === "All") {
+    const filtred = transactions.filter((el) => el.date.month === param1);
+
+    return filtred;
+  }
+  // category
+  else if (param1 === "All" && param2 !== "All" && param3 === "All") {
+    const filtred = transactions.filter((el) => el.category === param2);
+
+    return filtred;
+  }
+  // month + category
+  else if (param1 !== "All" && param2 !== "All" && param3 === "All") {
+    const filtred = transactions
+      .filter((el) => el.date.month === param1)
+      .filter((el) => el.category === param2);
+
+    return filtred;
+  }
+  // month + type
+  else if (param1 !== "All" && param2 === "All" && param3 !== "All") {
+    const filtred = transactions
+      .filter((el) => el.date.month === param1)
+      .filter((el) => el.type === param3);
+
+    return filtred;
+  }
+
+  // month + category + type
+  else if (param1 !== "All" && param2 !== "All" && param3 !== "All") {
+    const filtred = transactions
+      .filter((el) => el.date.month === param1)
+      .filter((el) => el.category === param2)
+      .filter((el) => el.type === param3);
+
+    return filtred;
+  }
+  // category + type
+  else if (param1 === "All" && param2 !== "All" && param3 !== "All") {
+    const filtred = transactions
+      .filter((el) => el.category === param2)
+      .filter((el) => el.type === param3);
+
+    return filtred;
+  } 
+  // category
+  else if (param1 === "All" && param2 === "All" && param3 !== "All") {
+    const filtred = transactions.filter((el) => el.type === param3);
+
+    return filtred;
+  } else {
+    return transactions;
+  }
 };
 
 // => Chart
