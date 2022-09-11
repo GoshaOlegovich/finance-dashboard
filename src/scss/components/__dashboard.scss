@@ -1,4 +1,6 @@
-.analytic {
+
+.dashboard {
+  margin: 100px 0 0 0;
   &__content {
     display: grid;
     gap: 30px;
@@ -6,41 +8,11 @@
     margin: 50px 0;
   }
   // => Headbar ( COMPONENT )
-  &__headbar {
-    display: flex;
-    gap: 48px;
-  }
-
-  &__info {
-    padding: 20px 50px 25px 25px;
-    background-color: $sectionBg;
-    color: $fontDisable--light;
-
-
-    box-shadow: 4px 4px 20px -10px rgba(0, 0, 0, 0.1);
-
-    &:hover {
-      background-color: #304daf;
-      color: $fontSecondary--light;
-    }
-
-    &_name {
-      font-size: 1.6rem;
-    }
-
-    &_amount {
-      padding: 20px 0 0 0;
-      font-size: 2.8rem;
-      font-weight: 700;
-    }
-  }
 
   // => Information block
 
   &__information {
-
     border-radius: 12px;
-    
   }
 
   &__chart {
@@ -69,12 +41,12 @@
   box-shadow: 4px 4px 20px -10px rgba(0, 0, 0, 0.1);
 
   background-color: #ffffff;
-  
+
   &__link {
     font-size: 1.6rem;
     font-weight: bold;
     text-align: center;
-    width: 90px;
+    width: fit-content;
     position: relative;
 
     &--active {
@@ -103,14 +75,12 @@
   box-shadow: 4px 4px 20px -10px rgba(0, 0, 0, 0.1);
   .title__h3 {
     width: fit-content;
- 
-
   }
   &__filter {
-    padding: 10px 0 20px 0  ;
+    padding: 10px 0 20px 0;
     display: flex;
     align-items: center;
-    gap: 70px ;
+    gap: 70px;
   }
   &__form {
     display: flex;
@@ -131,22 +101,26 @@
 
   &__list {
     display: grid;
-
   }
 
-  &_item {
+  &__item {
+    width: 100%;
     cursor: pointer;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
-    padding: 10px 0;
+    padding: 10px;
     &:first-child {
-      padding: 0 0 10px 0;
       border-bottom: 0.5px solid rgba(109, 125, 147, 0.5);
+      &:hover {
+        cursor: default;
+        background-color: #ffffff;
+        color: #000000;
+      }
     }
     &:hover {
-     background-color: #304DAF;
-     color: $fontSecondary--light;
+      background-color: #304daf;
+      color: $fontSecondary--light;
     }
   }
 
@@ -162,12 +136,13 @@
 // => Marker ( COMPONENT )
 
 .marker {
+  cursor: pointer;
   width: 0;
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
 
-  border-bottom: 15px solid gray;
+  border-bottom: 12px solid rgb(194, 194, 194);
 
   &-income {
     border-bottom: 15px solid green;

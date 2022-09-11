@@ -5,44 +5,77 @@
   'tittle' : 'Project name', })
 
   <body>
-    @@include('components/sidebar.html')
+    <!-- @@include('components/sidebar.html') -->
+    <div class="statusbar">
+      <div class="container">
+        <div class="statusbar__content">
+        
 
+          <div class="statusbar__date">
+            <span class="statusbar__day">Monday</span>
+            <span class="statusbar__month">20 Oct</span>
+            <span class="statusbar__time">20:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="dashboard">
       <div class="container">
         <!-- Content start  -->
 
-        <div class="analytic__content">
+        <div class="dashboard__content">
           <!-- Flow display -->
 
-          <div class="analytic__headbar">
-            <div class="analytic__info analytic__info__earning">
-              <p class="analytic__info_name">Total Earning</p>
-              <p
-                class="analytic__info_amount analytic__info_amount__earning"
-              ></p>
-            </div>
+          <div class="headbar">
+            <div class="headbar__money-flow">
+              <div class="headbar__info headbar__info__earning">
+                <p class="headbar__info_name">Total Earning</p>
+                <p
+                  class="headbar__info_amount headbar__info_amount__earning"
+                ></p>
+              </div>
 
-            <div class="analytic__info analytic__info__spending">
-              <p class="analytic__info_name">Total Spending</p>
-              <p
-                class="analytic__info_amount analytic__info_amount__spending"
-              ></p>
-            </div>
+              <div class="headbar__info headbar__info__spending">
+                <p class="headbar__info_name">Total Spending</p>
+                <p
+                  class="headbar__info_amount headbar__info_amount__spending"
+                ></p>
+              </div>
 
-            <div class="analytic__info analytic__info__balance">
-              <p class="analytic__info_name">Balance</p>
-              <p
-                class="analytic__info_amount analytic__info_amount__balance"
-              ></p>
+              <div class="headbar__info headbar__info__balance">
+                <p class="headbar__info_name">Balance</p>
+                <p
+                  class="headbar__info_amount headbar__info_amount__balance"
+                ></p>
+              </div>
             </div>
+            <div class="headbar__user">
+              <div class="headbar__avatar">
+                <img
+                  src="https://avataaars.io/?avatarStyle=Circle&topType=NoHair&accessoriesType=Blank&facialHairType=MoustacheMagnum&facialHairColor=BrownDark&clotheType=Hoodie&clotheColor=Black&eyeType=Default&eyebrowType=Default&mouthType=Default&skinColor=Light"
+                />
+              </div>
+              <div class="headbar__quick-info">
+                <span class="headbar__user-name">
+                  Winston Albert
+                </span>
+                <span class="headbar__user-status">
+                  Premium
+                </span>
+              </div>
+              <div class="headbar__menu">
+                <div class="marker"></div>
+              </div>
+            </div>
+            
           </div>
 
           <!-- Navigation -->
           <nav class="navigation">
             <a class="navigation__link navigation__link--active" href="#"
-              >Analysis</a
+              >History</a
             >
-            <a class="navigation__link" href="#">Transanctions</a>
+            <a class="navigation__link" href="#">Analysis</a>
           </nav>
 
           <!-- Informarion -->
@@ -59,9 +92,19 @@
                       class="transactions__selector"
                     >
                       <option value="All">All</option>
-                      <option value="Jule">Jule</option>
-                      <option value="Aug">Aug</option>
-                      <option value="Sep">Sep</option>
+                      <option value="January">January</option>
+                      <option value="February">February</option>
+                      <option value="March">March</option>
+                      <option value="April">April</option>
+                      <option value="May">May</option>
+                      <option value="June">June</option>
+                      <option value="July">July</option>
+                      <option value="August">August</option>
+                      <option value="September">September</option>
+                      <option value="October">October</option>
+                      <option value="November">November</option>
+                      <option value="Devember">Devember</option>
+                     
                     </select>
                   </label>
                   <label for="selectorCategory">
@@ -92,7 +135,7 @@
               </div>
 
               <ul class="transactions__list">
-                <li class="transactions_item">
+                <li class="transactions__item">
                   <span class="transactions__value">
                     Category
                   </span>
@@ -105,16 +148,10 @@
                 </li>
               </ul>
             </div>
-
-            <!-- <div class="analytic__chart">
-              <canvas id="myChart" class="analytic__analytic-chart"></canvas>
-            </div> -->
           </div>
         </div>
       </div>
     </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <script type="text/javascript" src="script/script.js"></script>
   </body>

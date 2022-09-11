@@ -7,10 +7,10 @@ let currentСurrency = "$";
 const transactions = [
   {
     type: "income",
-    value: 500,
+    value: 700,
     category: "Freelance",
     date: {
-      month: "Sep",
+      month: "September",
       day: 01,
     },
   },
@@ -19,7 +19,7 @@ const transactions = [
     value: 100,
     category: "Food",
     date: {
-      month: "Aug",
+      month: "September",
       day: 8,
     },
   },
@@ -28,37 +28,21 @@ const transactions = [
     value: 500,
     category: "Freelance",
     date: {
-      month: "Jule",
+      month: "August",
       day: 01,
     },
   },
   {
     type: "outcome",
-    value: 90,
+    value: 100,
     category: "Food",
     date: {
-      month: "Sep",
+      month: "August",
       day: 8,
     },
   },
-  {
-    type: "income",
-    value: 490,
-    category: "Freelance",
-    date: {
-      month: "Jule",
-      day: 01,
-    },
-  },
-  {
-    type: "outcome",
-    value: 30,
-    category: "Food",
-    date: {
-      month: "Jule",
-      day: 8,
-    },
-  },
+
+  
 ];
 
 // => Form
@@ -81,7 +65,7 @@ form.addEventListener("change", (e) => {
   console.log(filterParam);
 
   list.innerHTML = `
-  <li class="transactions_item">
+  <li class="transactions__item">
                   <span class="transactions__value">
                     Category
                   </span>
@@ -96,15 +80,14 @@ form.addEventListener("change", (e) => {
   includeTransactions(
     filterCheck(filterParam.month, filterParam.category, filterParam.type)
   );
- 
 });
 
 const filterCheck = (p1, p2, p3) => {
-  const filterResult = filter(p1, p2, p3)
+  const filterResult = filter(p1, p2, p3);
   console.log(filterResult);
   if (filterResult.length === 0) {
     list.innerHTML = `
-  <li class="transactions_item">
+  <li class="transactions__item">
                   <span class="transactions__value">
                     Category
                   </span>
@@ -115,20 +98,17 @@ const filterCheck = (p1, p2, p3) => {
                     Amount
                   </span>
                 </li>
-                <li class="transactions_item">
+                <li class="transactions__item">
                   <span class="transactions__value">
                  No data
                   </span>
                 </li>
                 
                 `;
+  } else {
+    return filterResult;
   }
-  else {
-    return filterResult
-  }
-
-}
-
+};
 
 const filter = (param1, param2, param3) => {
   // month
@@ -176,7 +156,7 @@ const filter = (param1, param2, param3) => {
       .filter((el) => el.type === param3);
 
     return filtred;
-  } 
+  }
   // category
   else if (param1 === "All" && param2 === "All" && param3 !== "All") {
     const filtred = transactions.filter((el) => el.type === param3);
@@ -187,14 +167,12 @@ const filter = (param1, param2, param3) => {
   }
 };
 
-// => Chart
-
 const list = document.querySelector(".transactions__list");
 
 const includeTransactions = (arr) => {
   for (let i = 0; i < arr.length; i++) {
     const item = document.createElement("li");
-    item.className = "transactions_item";
+    item.className = "transactions__item";
 
     const type = document.createElement("span");
     type.className = "transactions__value transactions__value--type";
@@ -236,9 +214,9 @@ const typeCheker = (amount, type) => {
 
 //
 
-const earning = document.querySelector(".analytic__info_amount__earning"),
-  speding = document.querySelector(".analytic__info_amount__spending"),
-  balance = document.querySelector(".analytic__info_amount__balance");
+const earning = document.querySelector(".headbar__info_amount__earning"),
+  speding = document.querySelector(".headbar__info_amount__spending"),
+  balance = document.querySelector(".headbar__info_amount__balance");
 
 const income = transactions.filter((el) => el.type === "income"),
   incomeTotal = income.reduce((a, b) => a + b.value, 0);
@@ -255,33 +233,3 @@ const incomeValueArr = income.map((i) => i.value);
 const outcomeValueArr = outcome.map((i) => i.value);
 
 includeTransactions(transactions);
-
-// => Chart
-
-const labels = ["Jule"];
-
-const data = {
-  labels: labels,
-  datasets: [
-    {
-      label: "Income",
-      backgroundColor: "green",
-      borderColor: "green",
-      data: incomeValueArr,
-    },
-    {
-      label: "Outcome",
-      backgroundColor: "red",
-      borderColor: "red",
-      data: outcomeValueArr,
-    },
-  ],
-};
-
-const config = {
-  type: "bar",
-  data: data,
-  options: {},
-};
-
-const myChart = new Chart(document.getElementById("myChart"), config);
