@@ -5,6 +5,9 @@
         display: flex;
         gap: 48px;
     }
+    &__difference {
+      font-size: 1.8rem;
+    }
     &__info {
       padding: 20px 50px 25px 25px;
       background-color: $sectionBg;

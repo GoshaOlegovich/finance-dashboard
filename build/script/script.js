@@ -2,47 +2,45 @@
 
 let currentСurrency = "$";
 
-// Mock BACKEND
+// => Mock BACKEND
 
 const transactions = [
+  {
+    type: "income",
+    value: 800,
+    category: "Freelance",
+    date: {
+      month: "September",
+      day: 01,
+    },
+  },
+  {
+    type: "outcome",
+    value: 200,
+    category: "Food",
+    date: {
+      month: "September",
+      day: 8,
+    },
+  },
   {
     type: "income",
     value: 700,
     category: "Freelance",
     date: {
-      month: "September",
-      day: 01,
-    },
-  },
-  {
-    type: "outcome",
-    value: 100,
-    category: "Food",
-    date: {
-      month: "September",
-      day: 8,
-    },
-  },
-  {
-    type: "income",
-    value: 500,
-    category: "Freelance",
-    date: {
       month: "August",
       day: 01,
     },
   },
   {
     type: "outcome",
-    value: 100,
+    value: 200,
     category: "Food",
     date: {
       month: "August",
       day: 8,
     },
   },
-
-  
 ];
 
 // => Form
@@ -82,6 +80,8 @@ form.addEventListener("change", (e) => {
   );
 });
 
+// => Filter
+
 const filterCheck = (p1, p2, p3) => {
   const filterResult = filter(p1, p2, p3);
   console.log(filterResult);
@@ -109,6 +109,9 @@ const filterCheck = (p1, p2, p3) => {
     return filterResult;
   }
 };
+
+
+
 
 const filter = (param1, param2, param3) => {
   // month
@@ -167,6 +170,9 @@ const filter = (param1, param2, param3) => {
   }
 };
 
+
+// => Transactions list
+
 const list = document.querySelector(".transactions__list");
 
 const includeTransactions = (arr) => {
@@ -212,24 +218,87 @@ const typeCheker = (amount, type) => {
   }
 };
 
-//
+
+// Inner Earning / Spending / Balance
 
 const earning = document.querySelector(".headbar__info_amount__earning"),
   speding = document.querySelector(".headbar__info_amount__spending"),
   balance = document.querySelector(".headbar__info_amount__balance");
 
-const income = transactions.filter((el) => el.type === "income"),
-  incomeTotal = income.reduce((a, b) => a + b.value, 0);
+const monts = ["August", "September"];
 
-const outcome = transactions.filter((el) => el.type === "outcome"),
-  outcomeTotal = outcome.reduce((a, b) => a + b.value, 0);
-let totalBalance = incomeTotal - outcomeTotal;
-earning.innerHTML = `$ ${incomeTotal}`;
-speding.innerHTML = `$ ${outcomeTotal}`;
+const prevIncome = transactions
+  .filter((el) => el.type === "income")
+  .filter((el) => el.date.month === monts[0])
+  .reduce((a, b) => a + b.value, 0);
 
+const prevOutcome = transactions
+  .filter((el) => el.type === "outcome")
+  .filter((el) => el.date.month === monts[0])
+  .reduce((a, b) => a + b.value, 0);
+
+const income = transactions
+  .filter((el) => el.type === "income")
+  .filter((el) => el.date.month === monts[1])
+  .reduce((a, b) => a + b.value, 0);
+
+const outcome = transactions
+  .filter((el) => el.type === "outcome")
+  .filter((el) => el.date.month === monts[1])
+  .reduce((a, b) => a + b.value, 0);
+
+let totalBalance = income - outcome;
+
+
+const whatsBigger = (a,b) => {
+    return (a - b) / b * 100
+}
+
+
+console.log("Aug", prevIncome,"Sep", income, 'Whats bigger?', whatsBigger(income, prevIncome) + '%');
+
+
+earning.innerHTML = `$ ${income}`;
+speding.innerHTML = `$ ${outcome}`;
 balance.innerHTML = `$ ${totalBalance}`;
 
-const incomeValueArr = income.map((i) => i.value);
-const outcomeValueArr = outcome.map((i) => i.value);
+const incomeDifference = document.querySelector(".headbar__difference-income"),
+  outcomeDifference = document.querySelector(".headbar__difference-outcome");
 
+
+
+const intrestIn = () => {
+  let result = whatsBigger(income, prevIncome)
+  if (result > 0) {
+    incomeDifference.classList.add('green')
+    incomeDifference.innerHTML = `${result.toFixed(2)}%`;
+  }
+  else if (result < 0) {
+    incomeDifference.classList.add('red')
+    incomeDifference.innerHTML = `${result.toFixed(2)}%`;
+  }
+  else {
+    outcomeDifference.innerHTML = `0%`;
+  }
+
+  // outcomeDifference.innerHTML = `${outcome / prevOutcome}%`;
+}
+
+const intrestOut = () => {
+  let result = whatsBigger(outcome, prevOutcome)
+  if (result > 0) {
+    outcomeDifference.classList.add('red')
+    outcomeDifference.innerHTML = `${result.toFixed(2)}%`;
+  }
+  else if (result < 0) {
+    outcomeDifference.classList.add('green')
+    outcomeDifference.innerHTML = `${result.toFixed(2)}%`;
+  }
+  else {
+    outcomeDifference.innerHTML = `0%`;
+  }
+}
+
+intrestIn()
+intrestOut()
 includeTransactions(transactions);
