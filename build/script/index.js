@@ -1,18 +1,16 @@
-// Imports
-
+// => Mock API ( Make later )
 import { transactions } from "./components/mock-fetch.js";
-import { Filter } from "./components/Filter/Filter.js";
+
+// => Function components
+
 import { Headbar } from "./components/Headbar/Headbar.js";
+import { Filter } from "./components/Filter/Filter.js";
 import { TransactionsList } from "./components/TransactionsList/TransactionsList.js";
 
-
-
-// => Transactions list
+const currentСurrency = '$'
 
 
 
-// Inner Earning / Spending / Balance
 Headbar(transactions)
-
-TransactionsList(transactions)
-Filter(transactions)
+TransactionsList(currentСurrency, transactions)
+Filter(currentСurrency, transactions)

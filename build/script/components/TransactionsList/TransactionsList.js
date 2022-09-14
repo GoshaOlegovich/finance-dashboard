@@ -1,7 +1,7 @@
 
 
-export const TransactionsList = (arr) => {
-    let currentСurrency = "$";
+export const TransactionsList = (currentСurrency, arr) => {
+
     const list = document.querySelector(".transactions__list");
     const typeCheker = (amount, type) => {
         if (type == "income") {
@@ -11,14 +11,13 @@ export const TransactionsList = (arr) => {
         }
     }
     for (let i = 0; i < arr.length; i++) {
-      const item = document.createElement("li");
+      const item = document.createElement("li"),
+      type = document.createElement("span"),
+      value = document.createElement("span");
       item.className = "transactions__item";
-  
-      const type = document.createElement("span");
       type.className = "transactions__value transactions__value--type";
-  
-      const value = document.createElement("span");
       value.className = "transactions__value transactions__value--amount";
+   
   
       const date = document.createElement("div"),
         category = document.createElement("span"),

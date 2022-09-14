@@ -1,15 +1,10 @@
-export const Filter = (transactions) => {
-  let currentСurrency = "$";
+import { typeCheker } from "/script/tools/TypeCheker.js";
+
+
+export const Filter = (currentСurrency, transactions) => {
+
 
   
-
-  const typeCheker = (amount, type) => {
-    if (type == "income") {
-      return `+ ${currentСurrency} ${amount}`;
-    } else {
-      return `- ${currentСurrency} ${amount}`;
-    }
-  };
   const filter = (param1, param2, param3) => {
     // month
     if (param1 !== "All" && param2 === "All" && param3 === "All") {
