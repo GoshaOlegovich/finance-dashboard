@@ -36,9 +36,9 @@ function image() {
 
 
 function minJs() {
-    return gulp.src(['src/script/*.js'])
+    return gulp.src(['src/script/**/*.js'])
     //.pipe(uglify())  - not use now
-    .pipe(concat('script.js'))
+    // .pipe(concat('script.js'))
     .pipe(gulp.dest('./build/script'))
     .pipe(browserSync.stream());
 }

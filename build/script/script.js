@@ -1,3 +1,4 @@
+console.log('das');
 // Global
 
 let currentСurrency = "$";
