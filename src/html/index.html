@@ -6,19 +6,7 @@
 
   <body>
     <!-- @@include('components/sidebar.html') -->
-    <div class="statusbar">
-      <div class="container">
-        <div class="statusbar__content">
-        
 
-          <div class="statusbar__date">
-            <span class="statusbar__day">Monday</span>
-            <span class="statusbar__month">20 Oct</span>
-            <span class="statusbar__time">20:00</span>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="dashboard">
       <div class="container">
         <!-- Content start  -->
@@ -33,7 +21,9 @@
                 <p
                   class="headbar__info_amount headbar__info_amount__earning"
                 ></p>
-                <span class="headbar__difference headbar__difference-income"></span>
+                <span
+                  class="headbar__difference headbar__difference-income"
+                ></span>
               </div>
 
               <div class="headbar__info headbar__info__spending">
@@ -41,7 +31,9 @@
                 <p
                   class="headbar__info_amount headbar__info_amount__spending"
                 ></p>
-                <span class="headbar__difference headbar__difference-outcome"></span>
+                <span
+                  class="headbar__difference headbar__difference-outcome"
+                ></span>
               </div>
 
               <div class="headbar__info headbar__info__balance">
@@ -69,100 +61,116 @@
                 <div class="marker"></div>
               </div>
             </div>
-            
           </div>
 
           <!-- Navigation -->
           <nav class="navigation">
-            <a class="navigation__link navigation__link--active" href="#"
-              >History</a
+            <a
+              data-page="transactions"
+              class="navigation__link navigation__link--active"
+              href="#"
+              >Transactions</a
             >
-            <a class="navigation__link" href="#">Analysis</a>
+            <a data-page="analysis" class="navigation__link" href="#"
+              >Analysis</a
+            >
           </nav>
 
           <!-- Informarion -->
-          <div class="analytic__information">
-            <div class="transactions">
-              <div class="transactions__filter">
-                <h3 class="title__h3">Transactions</h3>
-                <form class="transactions__form">
-                  <label for="selectorMonth">
-                    <span class="transactions__label">Mount</span>
-                    <select
-                      id="selectorMonth"
-                      name="month"
-                      class="transactions__selector"
-                    >
-                      <option value="All">All</option>
-                      <option value="January">January</option>
-                      <option value="February">February</option>
-                      <option value="March">March</option>
-                      <option value="April">April</option>
-                      <option value="May">May</option>
-                      <option value="June">June</option>
-                      <option value="July">July</option>
-                      <option value="August">August</option>
-                      <option value="September">September</option>
-                      <option value="October">October</option>
-                      <option value="November">November</option>
-                      <option value="Devember">Devember</option>
-                     
-                    </select>
-                  </label>
-                  <label for="selectorCategory">
-                    <span class="transactions__label">Category</span>
-                    <select
-                      name="category"
-                      id="selectorCategory"
-                      class="transactions__selector"
-                    >
-                      <option value="All">All</option>
-                      <option value="Freelance">Freelance</option>
-                      <option value="Food">Food</option>
-                    </select>
-                  </label>
-                  <label for="selectorType">
-                    <span class="transactions__label">Type</span>
-                    <select
-                      name="type"
-                      id="selectorType"
-                      class="transactions__selector"
-                    >
-                      <option value="All">All</option>
-                      <option value="income">income</option>
-                      <option value="outcome">outcome</option>
-                    </select>
-                  </label>
-                </form>
-              </div>
 
-              <ul class="transactions__list">
-                <li class="transactions__item">
-                  <span class="transactions__value">
-                    Category
-                  </span>
-                  <span class="transactions__value">
-                    Date
-                  </span>
-                  <span class="transactions__value">
-                    Amount
-                  </span>
-                </li>
-              </ul>
+          <div class="transactions">
+            <div class="transactions__filter">
+              <h3 class="title__h3">Transactions</h3>
+              <form class="transactions__form">
+                <label for="selectorMonth">
+                  <span class="transactions__label">Mount</span>
+                  <select
+                    id="selectorMonth"
+                    name="month"
+                    class="transactions__selector"
+                  >
+                    <option value="All">All</option>
+                    <option value="January">January</option>
+                    <option value="February">February</option>
+                    <option value="March">March</option>
+                    <option value="April">April</option>
+                    <option value="May">May</option>
+                    <option value="June">June</option>
+                    <option value="July">July</option>
+                    <option value="August">August</option>
+                    <option value="September">September</option>
+                    <option value="October">October</option>
+                    <option value="November">November</option>
+                    <option value="Devember">Devember</option>
+                  </select>
+                </label>
+                <label for="selectorCategory">
+                  <span class="transactions__label">Category</span>
+                  <select
+                    name="category"
+                    id="selectorCategory"
+                    class="transactions__selector"
+                  >
+                    <option value="All">All</option>
+                    <option value="Freelance">Freelance</option>
+                    <option value="Food">Food</option>
+                  </select>
+                </label>
+                <label for="selectorType">
+                  <span class="transactions__label">Type</span>
+                  <select
+                    name="type"
+                    id="selectorType"
+                    class="transactions__selector"
+                  >
+                    <option value="All">All</option>
+                    <option value="income">income</option>
+                    <option value="outcome">outcome</option>
+                  </select>
+                </label>
+              </form>
             </div>
+
+            <ul class="transactions__list">
+              <li class="transactions__item">
+                <span class="transactions__value">
+                  Category
+                </span>
+                <span class="transactions__value">
+                  Date
+                </span>
+                <span class="transactions__value">
+                  Amount
+                </span>
+              </li>
+            </ul>
           </div>
         </div>
+
+        <div class="analysis" style="display: none;">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Id sit
+          voluptatibus tempora illo dignissimos hic blanditiis saepe odio sed
+          quidem, quia impedit dolores similique ea officia voluptas vel
+          repellat amet?
+        </div>
       </div>
-    </div>  
+    </div>
 
     <!-- Tools -->
     <script type="module" src="script/tools/TypeCheker.js"></script>
-    
+
     <!-- Components -->
     <script type="module" src="script/components/mock-fetch.js"></script>
-    <script type="module" src="script/components/TransactionsList/TransactionsList.js"></script>
+    <script
+      type="module"
+      src="script/components/TransactionsList/TransactionsList.js"
+    ></script>
     <script type="module" src="script/components/Filter/Filter.js"></script>
     <script type="module" src="script/components/Headbar/Headbar.js"></script>
+    <script
+      type="module"
+      src="script/components/Navigation/Navigation.js"
+    ></script>
 
     <!-- Main -->
     <script type="module" src="script/index.js"></script>

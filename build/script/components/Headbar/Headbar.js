@@ -31,9 +31,9 @@ export const Headbar = (transactions) => {
     return ((a - b) / b) * 100;
   };
 
-  earning.innerHTML = `$ ${income}`;
-  speding.innerHTML = `$ ${outcome}`;
-  balance.innerHTML = `$ ${totalBalance}`;
+  earning.innerHTML = `$${income}`;
+  speding.innerHTML = `$${outcome}`;
+  balance.innerHTML = `$${totalBalance}`;
 
   const incomeDifference = document.querySelector(
       ".headbar__difference-income"
